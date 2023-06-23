@@ -25,9 +25,9 @@ export function setClick(selector, callback) {
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get("product");
-  return param;
+  return urlParams.get(param);
 }
+
 export function renderListWithTemplate(
   templateFn,
   parentElement,
@@ -41,6 +41,7 @@ export function renderListWithTemplate(
   const htmlString = list.map(templateFn);
   parentElement.insertAdjacentHTML(position, htmlString.join(""));
 }
+
 export async function renderWithTemplate(
   templateFn,
   parentElement,
@@ -58,6 +59,7 @@ export async function renderWithTemplate(
     callback(data);
   }
 }
+
 function loadTemplate(path) {
   // wait what?  we are returning a new function? this is called currying and can be very helpful.
   return async function () {
@@ -68,6 +70,7 @@ function loadTemplate(path) {
     }
   };
 }
+
 export async function loadHeaderFooter() {
   // header template will still be a function! But one where we have pre-supplied the argument.
   // headerTemplate and footerTemplate will be almost identical, but they will remember the path we passed in when we created them

@@ -1,20 +1,16 @@
 import { getLocalStorage, renderListWithTemplate } from "./utils.mjs";
 
-function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
-}
 export default function ShoppingCart() {
   const cartItems = getLocalStorage("so-cart");
   const outputEl = document.querySelector(".product-list");
   renderListWithTemplate(cartItemTemplate, outputEl, cartItems);
 }
+
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
+      src="${item.Images.PrimaryMedium}"
       alt="${item.Name}"
     />
   </a>
@@ -29,4 +25,14 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
-renderCartContents();
+
+// function renderCartContents() {
+//   const cartItems = getLocalStorage("so-cart");
+//   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+//   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+// }
+
+
+// }
+
+// renderCartContents();
