@@ -21,13 +21,13 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
-// set by team activity, get a parameter from the URL when we need to.
+
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get("product");
-  return param;
+  return urlParams.get(param);
 }
+
 export function renderListWithTemplate(
   templateFn,
   parentElement,
@@ -41,6 +41,7 @@ export function renderListWithTemplate(
   const htmlString = list.map(templateFn);
   parentElement.insertAdjacentHTML(position, htmlString.join(""));
 }
+
 export async function renderWithTemplate(
   templateFn,
   parentElement,
@@ -58,6 +59,7 @@ export async function renderWithTemplate(
     callback(data);
   }
 }
+
 function loadTemplate(path) {
   // wait what?  we are returning a new function? this is called currying and can be very helpful.
   return async function () {
@@ -68,6 +70,7 @@ function loadTemplate(path) {
     }
   };
 }
+
 export async function loadHeaderFooter() {
   // header template will still be a function! But one where we have pre-supplied the argument.
   // headerTemplate and footerTemplate will be almost identical, but they will remember the path we passed in when we created them
@@ -78,4 +81,30 @@ export async function loadHeaderFooter() {
   const footerEl = document.querySelector("#main-footer");
   renderWithTemplate(headerTemplateFn, headerEl);
   renderWithTemplate(footerTemplateFn, footerEl);
+}
+export function alertMessage(message, scroll = true, duration = 3000) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(this);
+    }
+  });
+  const main = document.querySelector("main");
+  main.prepend(alert);
+  // make sure they see the alert by scrolling to the top of the window
+  //we may not always want to do this...so default to scroll=true, but allow it to be passed in and overridden.
+  if (scroll) window.scrollTo(0, 0);
+
+  // left this here to show how you could remove the alert automatically after a certain amount of time.
+  // setTimeout(function () {
+  //   main.removeChild(alert);
+  // }, duration);
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
