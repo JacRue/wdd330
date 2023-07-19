@@ -102,5 +102,62 @@ const checkoutProcess = {
     }
   },
 };
+// Function to calculate total cost of items in the cart
+function calculateTotal(cart) {
+  let total = 0;
+  cart.forEach((item) => {
+    total += item.price; // Assuming each item in the cart has a price property
+  });
+  return total;
+}
+
+// Function to load the cart page
+function loadCartPage() {
+  // Get the cart from localStorage
+  let cart = JSON.parse(localStorage.getItem("cart"));
+
+  // If there's nothing in the cart, just return
+  if (!cart || cart.length === 0) {
+    return;
+  }
+
+  // Calculate the total cost of items in the cart
+  const total = calculateTotal(cart);
+
+  // Show the cart footer and insert the total cost into it
+  const cartFooter = document.querySelector(".cart-footer");
+  cartFooter.classList.add("show");
+
+  const cartTotal = cartFooter.querySelector(".cart-total");
+  cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+loadCartPage();
 
 export default checkoutProcess;
+
+// Get all the "Update Quantity" buttons
+const updateQuantityButtons = document.querySelectorAll(
+  ".update-quantity-button"
+);
+
+updateQuantityButtons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    // Get the new quantity
+    const quantityInput = document.querySelectorAll(".quantity-input")[index];
+    const newQuantity = quantityInput.value;
+
+    // Get the current cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    // Update the quantity of the corresponding item in the cart
+    if (cart[index]) {
+      cart[index].quantity = newQuantity;
+    }
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Optionally, you could re-render the cart here to reflect the updated quantity
+  });
+});

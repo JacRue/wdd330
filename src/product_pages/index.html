@@ -61,6 +61,32 @@
                 <button id="addToCart" data-id="">Add to Cart</button>
             </div>
         </section>
+        <select id="sort-select">
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+        </select>
+        <!-- Product detail section -->
+        <div class="product-detail" data-product-id="1">
+            <h2 id="product-name">Product Name</h2>
+            <p id="product-description">Product description</p>
+            <p id="product-price">Price: $100</p>
+            <!-- This is where we will insert the discount flag -->
+            <div id="discount-flag"></div>
+        </div>
+        <div id="product-color-options"></div>
+        <div id="product-image-carousel">
+            <button id="carousel-prev">Prev</button>
+            <div id="carousel-images"></div>
+            <button id="carousel-next">Next</button>
+        </div>
+        <div id="carousel-indicators"></div>
+        <button id="add-to-wishlist">Add to Wishlist</button>
+        <form id="comment-form">
+            <textarea id="comment-input" placeholder="Write your comment..." required></textarea>
+            <input type="submit" value="Post Comment">
+        </form>
+
+        <div id="comments-container"></div>
     </main>
 
     <footer>&copy;NOT a real business</footer>

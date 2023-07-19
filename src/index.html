@@ -11,6 +11,12 @@
 
 <body>
   <header class="divider" id="main-header"></header>
+  <nav>
+    <form id="search-form" class="navbar-search">
+      <input type="text" id="search-query" placeholder="Search for products..." required>
+      <button type="submit">Search</button>
+    </form>
+  </nav>
   <main class="divider">
     <div class="hero">
       <img src="/images/banner-sm.jpg" srcset="images/banner-sm.jpg 500w, images/banner.jpg"
@@ -59,6 +65,14 @@
         </li>
       </ul>
     </section>
+    <div id="breadcrumb"></div>
+    <div class="newsletter">
+      <h2>Sign Up for Our Newsletter</h2>
+      <form id="newsletter-form">
+        <input type="email" id="newsletter-email" placeholder="Your email address" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
   </main>
   <footer id="main-footer"></footer>
 </body>
