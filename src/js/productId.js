@@ -7,7 +7,7 @@ function getProductIdFromUrl() {
 // Function to fetch product data
 async function fetchProductData(productId) {
   const response = await fetch(
-    `http://localhost:5173/api/products/${productId}`
+    `http://server-nodejs.cit.byui.edu:3000/api/products/${productId}`
   );
 
   if (!response.ok) {

@@ -8,7 +8,7 @@ document
     let email = document.getElementById("newsletter-email").value;
 
     // Send a POST request to your server with the email address
-    fetch("http://localhost:5173/api/newsletter", {
+    fetch(`http://server-nodejs.cit.byui.edu:3000/api/newsletter`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

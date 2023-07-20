@@ -25,7 +25,7 @@ document
       email: email,
     };
 
-    fetch("http://localhost:5173/api/users", {
+    fetch(baseURL + `api/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

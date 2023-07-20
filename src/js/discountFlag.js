@@ -2,7 +2,7 @@ const productId = document.querySelector(".product-detail").dataset.productId;
 const discountFlagElement = document.getElementById("discount-flag");
 
 // Fetch product details from your API
-fetch(`http://localhost:5173/api/products/${productId}`)
+fetch(`http://server-nodejs.cit.byui.edu:3000/api/products/${productId}`)
   .then((response) => response.json())
   .then((product) => {
     // Check if the product is discounted

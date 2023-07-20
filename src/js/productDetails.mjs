@@ -1,4 +1,4 @@
-import { findProductById } from "./externalServices.mjs";
+import { findProductById } from "./externalService.mjs";
 import { setLocalStorage, getLocalStorage, alertMessage } from "./utils.mjs";
 
 let product = {};
@@ -12,6 +12,7 @@ export default async function productDetails(productId) {
   document.getElementById("addToCart").addEventListener("click", addToCart);
 }
 function addToCart() {
+  console.log("addToCart function triggered");
   let cartContents = getLocalStorage("so-cart");
   //check to see if there was anything there
   if (!cartContents) {

@@ -1,4 +1,4 @@
-import { loginRequest, getOrders } from "./externalServices.mjs";
+import { loginRequest, getOrders } from "./externalService.mjs";
 import { alertMessage } from "./utils.mjs";
 
 export default class Admin {

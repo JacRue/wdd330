@@ -1,7 +1,7 @@
 // Function to fetch product data based on a search query
 async function fetchProductData(query) {
   const response = await fetch(
-    `http://localhost:5173/api/products/search?q=${query}`
+   `http://server-nodejs.cit.byui.edu:3000/api/products/search?q=${query}`
   );
 
   if (!response.ok) {

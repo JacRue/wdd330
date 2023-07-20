@@ -16,7 +16,7 @@ document
     };
 
     // Send the comment data to the server
-    fetch("http://localhost:5173/api/comments", {
+    fetch("http://server-nodejs.cit.byui.edu:3000/api/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ window.addEventListener("load", function () {
   const productId = "123"; // Replace with actual product id
 
   // Get the comments for this product from the server
-  fetch(`http://localhost:5173/api/comments?productId=${productId}`)
+  fetch(baseURL + `api/comments?productId=${productId}`)
     .then((response) => response.json())
     .then((data) => {
       // Add each comment to the comments container

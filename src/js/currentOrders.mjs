@@ -1,4 +1,4 @@
-import { getOrders } from "./externalServices.mjs";
+import { getOrders } from "./externalService.mjs";
 
 export default async function currentOrders(selector, token) {
   try {

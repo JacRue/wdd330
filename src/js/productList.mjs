@@ -1,8 +1,8 @@
-import { getProductsByCategory } from "./externalServices.mjs";
+import { getProductsByCategory } from "./externalService.mjs";
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
-  return `<li class="product-card">
+  const htmlString = `<li class="product-card">
     <a href="/product_pages/index.html?product=${product.Id}">
     <img
       src="${product.Image.PrimaryMedium}"
@@ -12,6 +12,8 @@ function productCardTemplate(product) {
     <h2 class="card__name">${product.NameWithoutBrand}</h2>
     <p class="product-card__price">$${product.FinalPrice}</p></a>
   </li>`;
+  console.log('productCardTemplate:', htmlString);
+  return htmlString;
 }
 
 export default async function productList(selector, category) {

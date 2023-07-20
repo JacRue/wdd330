@@ -18,6 +18,7 @@ function sortProducts(products, sortBy) {
 const sortSelect = document.querySelector("#sort-select");
 
 sortSelect.addEventListener("change", () => {
+  console.log("sortSelect change event triggered");
   const sortedProducts = sortProducts(products, sortSelect.value);
-  renderProductList(sortedProducts); // assuming you have a function to render the product list
+  renderProductList(sortedProducts);
 });

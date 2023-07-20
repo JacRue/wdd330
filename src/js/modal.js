@@ -28,10 +28,10 @@ const closeModalButton = modal.querySelector(".close");
 // Add event listeners to quick view buttons
 quickViewButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    const productId = e.target.closest(".product-listing").dataset.productId;
+    const productId = e.target.closest(".product-list").dataset.productId;
 
     // Fetch product details from your API
-    fetch(`http://localhost:5173/api/products/${productId}`)
+    fetch(`http://server-nodejs.cit.byui.edu:3000/api/products/${productId}`)
       .then((response) => response.json())
       .then((product) => {
         // Populate the modal with the product details
